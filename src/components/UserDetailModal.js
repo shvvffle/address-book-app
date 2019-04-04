@@ -7,35 +7,62 @@ class UserDetailModal extends Component {
     user_detail.classList.add('hidden');
   };
   render() {
-    const { picture, name, login, email } = this.props.details;
+    const {
+      picture,
+      name,
+      login,
+      email,
+      location,
+      cell,
+      phone
+    } = this.props.details;
     const full_name = name.first + ' ' + name.last;
     return (
       <div className='user-info-modal hidden' id={'user_' + email}>
         <div className='user-info-modal-main'>
-          <img src={picture.thumbnail} alt={full_name} />
+          <img src={picture.large} alt={full_name} />
           <div className='user-info-details'>
-            <p className='name'>{full_name}</p>
-            <p className='username'>{login.username}</p>
-            <p className='email'>{email}</p>
+            <p className='name'>
+              <span>name: </span>
+              {full_name}
+            </p>
+            <p className='username'>
+              <span>username:</span>
+              {login.username}
+            </p>
+            <p className='email'>
+              <span>email:</span>
+              {email}
+            </p>
+            <div className='user-info-misc'>
+              <p className='location'>
+                <span>location:</span>
+                {location.street}
+                {location.city}
+                {location.state}
+                {location.postcode}
+              </p>
+              <p className='phone'>
+                <span>phone number:</span>
+                {phone}
+              </p>
+              <p className='cell'>
+                <span>cell number:</span>
+                {cell}
+              </p>
+            </div>
           </div>
           <div
             className='user-info-actions'
             onClick={this.hideUserDetails}
             data-value={email}
           >
-            <span>x</span>
+            <span className='user-info-btn'>x</span>
           </div>
         </div>
       </div>
     );
   }
 }
-
-// - a ‘location.street’ field,
-// - a ‘location.city’ field,
-// - a ‘location.state’ field,
-// - a ‘location.postcode’ field,
-// - a ‘phone’ field,
-// - a ‘cell’ field,
 
 export default UserDetailModal;
