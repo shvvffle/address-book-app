@@ -28,6 +28,10 @@ body {
   }
 }
 
+.show {
+  display: block;
+}
+
 .hidden {
   display: none;
 }
@@ -43,7 +47,8 @@ body {
   height: 100vh;
 }
 
-.loading-wrapper .loading-msg:after {
+.loading-wrapper .loading-msg:after,
+.loading-users:after {
   content: ' .';
   animation: dots 1s steps(5, end) infinite;
 }
@@ -181,4 +186,11 @@ body {
   border-radius: 5px;
   padding: 10px;
   font-size: 14px;
+}
+
+.loading-users {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: -95px;
 }
