@@ -188,7 +188,8 @@ body {
   font-size: 14px;
 }
 
-.loading-users {
+.loading-users,
+.end-users {
   text-align: center;
   font-weight: bold;
   font-size: 25px;

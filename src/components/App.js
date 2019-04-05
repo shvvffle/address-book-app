@@ -8,14 +8,16 @@ class App extends React.Component {
   state = {
     users: [],
     isLoading: true,
-    requestSent: true
+    requestSent: true,
+    endUsersRequest: false
   };
 
   componentDidMount() {
-    this.loadUsers();
+    this.requestUsers();
   }
 
-  loadUsers() {
+  requestUsers() {
+    // request users in a batch of 50 each time
     const min_results = 50;
     axios
       .get('https://randomuser.me/api/?results=' + min_results + '')
@@ -30,7 +32,7 @@ class App extends React.Component {
       });
   }
 
-  querySearchResult() {
+  sendUsersRequest() {
     if (this.state.requestSent) {
       return;
     }
@@ -38,10 +40,10 @@ class App extends React.Component {
     this.setState({ requestSent: true });
 
     // enumerate a slow query
-    setTimeout(this.loadUsers.bind(this), 2000);
+    setTimeout(this.requestUsers.bind(this), 2000);
   }
 
-  handleOnScroll() {
+  handleScroll() {
     const wrapper = document.querySelector('.users-wrapper');
     const scrollTop = wrapper && wrapper.scrollTop;
     const scrollHeight = wrapper && wrapper.scrollHeight;
@@ -51,9 +53,11 @@ class App extends React.Component {
     if (scrolledToBottom) {
       if (this.state.users.length === 1000) {
         // show end of catalogue
-        console.log('oi');
+        this.setState({ endUsersRequest: true });
+      } else {
+        // request the next 50 batch of users
+        this.sendUsersRequest();
       }
-      this.querySearchResult();
     }
   }
 
@@ -66,7 +70,7 @@ class App extends React.Component {
           <Search users={this.state.users} />
           <div
             className='users-wrapper'
-            onScroll={this.handleOnScroll.bind(this)}
+            onScroll={this.handleScroll.bind(this)}
           >
             <ul className='users'>
               {Object.keys(this.state.users).map(key => (
@@ -82,6 +86,13 @@ class App extends React.Component {
             }
           >
             loading
+          </div>
+          <div
+            className={
+              this.state.endUsersRequest ? 'end-users show' : 'end-users hidden'
+            }
+          >
+            end of users catalog
           </div>
         </div>
       );
