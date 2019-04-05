@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Loading from './Loading';
 import User from './User';
+import Search from './Search';
 
 class App extends React.Component {
   state = {
@@ -27,12 +28,15 @@ class App extends React.Component {
       return <Loading />;
     } else {
       return (
-        <div className='users-wrapper'>
-          <ul className='users'>
-            {Object.keys(this.state.users).map(key => (
-              <User key={key} index={key} details={this.state.users[key]} />
-            ))}
-          </ul>
+        <div className='wrapper'>
+          <Search users={this.state.users} />
+          <div className='users-wrapper'>
+            <ul className='users'>
+              {Object.keys(this.state.users).map(key => (
+                <User key={key} index={key} details={this.state.users[key]} />
+              ))}
+            </ul>
+          </div>
         </div>
       );
     }
