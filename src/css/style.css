@@ -54,7 +54,8 @@ body {
   animation: dots 1s steps(5, end) infinite;
 }
 
-.users-wrapper {
+.users-wrapper,
+.settings-wrapper {
   overflow-y: auto;
   width: 80%;
   height: 500px;
@@ -195,4 +196,60 @@ body {
   font-weight: bold;
   font-size: 25px;
   margin-top: -95px;
+}
+
+.settings-link {
+  padding: 10px 25px;
+  float: right;
+  color: #fff;
+  font-size: 20px;
+  margin: -50px 45px;
+  text-decoration: none;
+  background: #81f4e1;
+  border-radius: 10px;
+  outline: none;
+}
+
+.nav {
+  margin: 15px 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav a::before {
+  content: '<';
+  margin: 5px;
+}
+
+.nav a:hover {
+  color: #81f4e1;
+}
+
+.settings-wrapper {
+  background: #fff;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-wrapper p {
+  font-weight: bold;
+  color: #81f4e1;
+  margin: 30px;
+  font-size: 20px;
+}
+
+.choices-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 30px;
+}
+
+.choices-wrapper label {
+  text-transform: uppercase;
+  margin: 5px;
 }
