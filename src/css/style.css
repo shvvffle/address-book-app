@@ -36,7 +36,8 @@ body {
   display: none;
 }
 
-.loading-wrapper {
+.loading-wrapper,
+.not-found {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
