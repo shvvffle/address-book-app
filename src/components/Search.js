@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Search extends Component {
   filterSearch = event => {
     const search_value = event.currentTarget.value.toLowerCase();
-    const users = document.querySelectorAll('.user-info-details .name');
+    const users = document.querySelectorAll('.js-full-name');
     const user_wrapper = document.querySelectorAll('.user-info-card');
     user_wrapper.forEach(function(user, index) {
       if (users[index].innerText.toLowerCase().indexOf(search_value) >= 0) {

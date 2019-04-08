@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class Settings extends Component {
   state = {
@@ -46,7 +47,7 @@ class Settings extends Component {
     return (
       <div className='wrapper'>
         <div className='nav'>
-          <a href='/'>Back</a>
+          <Link to='/'>Back</Link>
         </div>
         <div className='settings-wrapper'>
           <p>Settings</p>

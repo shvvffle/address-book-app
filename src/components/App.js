@@ -3,6 +3,7 @@ import axios from 'axios';
 import Loading from './Loading';
 import User from './User';
 import Search from './Search';
+import { Link } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -68,9 +69,9 @@ class App extends Component {
       return (
         <div className='wrapper'>
           <Search users={this.state.users} />
-          <a href='/settings' className='settings-link'>
+          <Link to='/settings' className='settings-link'>
             Settings
-          </a>
+          </Link>
           <div
             className='users-wrapper'
             onScroll={this.handleScroll.bind(this)}

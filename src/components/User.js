@@ -15,7 +15,7 @@ class User extends Component {
       <div className='user-info-card'>
         <img src={picture.thumbnail} alt={full_name} />
         <div className='user-info-details'>
-          <p className='name'>{full_name}</p>
+          <p className='name js-full-name'>{full_name}</p>
           <p className='username'>{login.username}</p>
           <p className='email'>{email}</p>
           <div
