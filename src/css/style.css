@@ -253,3 +253,16 @@ body {
   text-transform: uppercase;
   margin: 5px;
 }
+
+.settings-wrapper button {
+  background: #81f4e1;
+  color: #fff;
+  border: none;
+  width: 90px;
+  border-radius: 10px;
+  margin: 5px 35px;
+  font-size: 15px;
+  padding: 5px;
+  cursor: pointer;
+  outline: none;
+}

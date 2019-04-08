@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import Loading from './Loading';
 import User from './User';
 import Search from './Search';
-import Settings from './Settings';
 
-class App extends React.Component {
+class App extends Component {
   state = {
     users: [],
     isLoading: true,
@@ -69,7 +68,9 @@ class App extends React.Component {
       return (
         <div className='wrapper'>
           <Search users={this.state.users} />
-          <a href="/settings" className='settings-link'>Settings</a>
+          <a href='/settings' className='settings-link'>
+            Settings
+          </a>
           <div
             className='users-wrapper'
             onScroll={this.handleScroll.bind(this)}

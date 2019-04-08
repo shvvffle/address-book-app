@@ -5,13 +5,13 @@ import NotFound from './NotFound';
 import Settings from './Settings';
 
 const Router = () => (
-	<BrowserRouter>
-		<Switch>
-			<Route exact path="/" component={App} />
-			<Route path="/settings" component={Settings} />
-			<Route component={NotFound} />
-		</Switch>
-	</BrowserRouter>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={App} />
+      <Route path='/settings' component={Settings} />
+      <Route component={NotFound} />
+    </Switch>
+  </BrowserRouter>
 );
 
 export default Router;
