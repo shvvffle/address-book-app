@@ -36,11 +36,16 @@ class UserDetailModal extends Component {
             </p>
             <div className='user-info-misc'>
               <p className='location'>
-                <span>location:</span>
+                <span>street:</span>
                 {location.street}
-                {location.city}
+              </p>
+              <p className='location'>
+                <span>city:</span>
+                {location.postcode} {location.city}
+              </p>
+              <p className='location'>
+                <span>state:</span>
                 {location.state}
-                {location.postcode}
               </p>
               <p className='phone'>
                 <span>phone number:</span>
