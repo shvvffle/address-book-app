@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import Loading from './Loading';
-import User from './User';
+import UsersList from './UsersList';
 import Search from './Search';
 import { Link } from 'react-router-dom';
+import { getRandomUsers } from '../utils';
 
 class App extends Component {
   state = {
@@ -18,19 +18,15 @@ class App extends Component {
   }
 
   requestUsers() {
-    // request users in a batch of 50 each time
-    const min_results = 50;
-    axios
-      .get('https://randomuser.me/api/?results=' + min_results + '')
-      .then(response => {
-        const users = response.data.results;
-        const new_users = this.state.users.concat(users);
-        this.setState({
-          users: new_users,
-          isLoading: false,
-          requestSent: false
-        });
+    getRandomUsers().then(response => {
+      const users = response.data.results;
+      const new_users = this.state.users.concat(users);
+      this.setState({
+        users: new_users,
+        isLoading: false,
+        requestSent: false
       });
+    });
   }
 
   sendUsersRequest() {
@@ -76,11 +72,7 @@ class App extends Component {
             className='users-wrapper'
             onScroll={this.handleScroll.bind(this)}
           >
-            <ul className='users'>
-              {Object.keys(this.state.users).map(key => (
-                <User key={key} index={key} details={this.state.users[key]} />
-              ))}
-            </ul>
+            <UsersList list={this.state.users} />
           </div>
           <div
             className={

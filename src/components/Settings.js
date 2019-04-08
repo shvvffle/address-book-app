@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { getRandomUsers } from '../utils';
 
 class Settings extends Component {
   state = {
@@ -11,7 +11,7 @@ class Settings extends Component {
   onClick = event => {
     event.preventDefault();
     const choices = this.state.checked;
-    this.requestUsers(choices);
+    getRandomUsers(choices);
   };
 
   handleCheckbox = event => {
@@ -28,20 +28,6 @@ class Settings extends Component {
       this.setState({ checked });
     }
   };
-
-  requestUsers(value) {
-    if (value) {
-      axios
-        .get('https://randomuser.me/api/?nat=' + value + '')
-        .then(response => {
-          const users = response.data.results;
-          this.setState({
-            users: users,
-            isLoading: false
-          });
-        });
-    }
-  }
 
   render() {
     return (
