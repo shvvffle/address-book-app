@@ -41,6 +41,7 @@ class App extends Component {
   }
 
   handleScroll() {
+    const max_users = 1000;
     const wrapper = document.querySelector('.users-wrapper');
     const scrollTop = wrapper && wrapper.scrollTop;
     const scrollHeight = wrapper && wrapper.scrollHeight;
@@ -48,7 +49,7 @@ class App extends Component {
     const scrolledToBottom =
       Math.ceil(scrollTop + clientHeight) >= scrollHeight;
     if (scrolledToBottom) {
-      if (this.state.users.length === 1000) {
+      if (this.state.users.length === max_users) {
         // show end of catalogue
         this.setState({ endUsersRequest: true });
       } else {
