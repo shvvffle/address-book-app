@@ -62,38 +62,34 @@ class App extends Component {
   render() {
     if (this.state.isLoading) {
       return <Loading />;
-    } else {
-      return (
-        <div className='wrapper'>
-          <Search users={this.state.users} />
-          <Link to='/settings' className='settings-link'>
-            Settings
-          </Link>
-          <div
-            className='users-wrapper'
-            onScroll={this.handleScroll.bind(this)}
-          >
-            <UsersList list={this.state.users} />
-          </div>
-          <div
-            className={
-              this.state.requestSent
-                ? 'loading-users show'
-                : 'loading-users hidden'
-            }
-          >
-            loading
-          </div>
-          <div
-            className={
-              this.state.endUsersRequest ? 'end-users show' : 'end-users hidden'
-            }
-          >
-            end of users catalog
-          </div>
-        </div>
-      );
     }
+    return (
+      <div className='wrapper'>
+        <Search users={this.state.users} />
+        <Link to='/settings' className='settings-link'>
+          Settings
+        </Link>
+        <div className='users-wrapper' onScroll={this.handleScroll.bind(this)}>
+          <UsersList list={this.state.users} />
+        </div>
+        <div
+          className={
+            this.state.requestSent
+              ? 'loading-users show'
+              : 'loading-users hidden'
+          }
+        >
+          loading
+        </div>
+        <div
+          className={
+            this.state.endUsersRequest ? 'end-users show' : 'end-users hidden'
+          }
+        >
+          end of users catalog
+        </div>
+      </div>
+    );
   }
 }
 
