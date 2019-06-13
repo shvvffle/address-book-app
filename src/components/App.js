@@ -42,7 +42,7 @@ class App extends Component {
 
   handleScroll() {
     const max_users = 1000;
-    const wrapper = document.querySelector('.users-wrapper');
+    const wrapper = document.querySelector('.wrapper');
     const scrollTop = wrapper && wrapper.scrollTop;
     const scrollHeight = wrapper && wrapper.scrollHeight;
     const clientHeight = window.innerHeight;
@@ -64,15 +64,12 @@ class App extends Component {
       return <Loading />;
     } else {
       return (
-        <div className='wrapper'>
+        <div className='wrapper' onScroll={this.handleScroll.bind(this)}>
           <Search users={this.state.users} />
           <Link to='/settings' className='settings-link'>
             Settings
           </Link>
-          <div
-            className='users-wrapper'
-            onScroll={this.handleScroll.bind(this)}
-          >
+          <div className='users-wrapper'>
             <UsersList list={this.state.users} />
           </div>
           <div
