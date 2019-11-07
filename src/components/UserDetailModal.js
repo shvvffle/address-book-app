@@ -37,7 +37,7 @@ class UserDetailModal extends Component {
             <div className='user-info-misc'>
               <p className='location'>
                 <span>street:</span>
-                {location.street}
+                {location.street.name}
               </p>
               <p className='location'>
                 <span>city:</span>
